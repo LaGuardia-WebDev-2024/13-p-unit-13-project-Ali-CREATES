@@ -16,7 +16,32 @@
   margin-bottom: 20px;
 }
 
+h1:hover {
+  background-color: pink;
+}
+
 hr {
   height: 5px;
   background-color: black;
+}
+
+.bunny {
+  color: purple;
+  font-size: 36px;
+}
+.dog {
+  color: blue;
+  font-size: 34px;
+}
+.cat {
+  color: orange;
+  font-size: 32px;
+}
+.mouse {
+  color: green;
+  font-size: 30px;
+}
+.wabbit {
+  color: red;
+  font-size: 28px;
 }
