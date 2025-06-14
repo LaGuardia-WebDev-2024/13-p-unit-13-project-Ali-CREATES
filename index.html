@@ -1,15 +1,15 @@
 <!-- Unit 13 Project
 Requirements
-[  ] Two Interactive Drop-down Inputs 
-[  ] Two Different jQuery Animation Methods 
-[  ] Add Five CSS Declarations
-[  ] Include Three Images
+[YES] Two Interactive Drop-down Inputs 
+[YES] Two Different jQuery Animation Methods 
+[YES] Add Five CSS Declarations
+[YES] Include Three Images
 
 Select ONE Additional Feature to Add  
 [ no ] Feature 1 - Google Font
 [ no ] Feature 2 - Upload a Font
 [ no ] Feature 3 - .mouseover() Method
-[ no ] Feature 4 - :hover Feature 
+[ YES ] Feature 4 - :hover Feature 
 [ no ] Feature 5 - Add an Additional Interactive Drop-down
 -->
 
@@ -21,50 +21,94 @@ Select ONE Additional Feature to Add
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <h1>Quiz About [Me]</h1>
+    <h1 class="bunny">Quiz About [Me]</h1>
+    <h2 class="cat">and the things I like</h2>
+    <h3 class="dog">or don't?</h3>
     <hr />
     <!-- Movie Question -->
+
     <form id="movie-form">
-      <label>
-        🎥 What is my favorite movie?
+      <label class="wabbit">
+        🎥 What is my favorite TV Show?
         <select id="movie-answer">
-          <option value="movie1">movie 1</option>
-          <option value="movie2">movie 2</option>
-          <option value="movie3">movie 3</option>
-          <option value="movie4">movie 4</option>
+          <option value="movie1">Extracurricular</option>
+          <option value="movie2">Snowfall</option>
+          <option value="movie3">Breaking Badl</option>
+          <option value="movie4">YOU</option>
         </select>
       </label>
-      <button type="submit">Check Movie Answer</button>
+      <button type="submit">Check your answer!</button>
     </form>
     <div id="movie-result"></div>
+    <img
+      src="https://m.media-amazon.com/images/M/MV5BMmNhNWFiM2ItMTA4ZC00YmNiLTk0NmMtNjcxYTNiNjY4MzJmXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+      style="width: 100px; display: inline-block"
+    />
+    <img
+      src="https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p16937688_b_v13_aa.jpg"
+      style="width: 100px; display: inline-block"
+    />
+    <img
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7AUQ1ap545wJq1Op_9GPLFAV15boesLoyZA&s"
+      style="width: 100px; display: inline-block"
+    />
+    <img
+      src="https://m.media-amazon.com/images/I/81Qw5nY7vKL.jpg"
+      style="width: 100px; display: inline-block"
+    />
     <hr />
     <!-- Book Question -->
     <form id="book-form">
-      <label>
-        📖 What is my favorite book?
+      <label class="mouse">
+        📖 What is my dystopian movie franchise?
         <select id="book-answer">
-          <option value="book1">book 1</option>
-          <option value="book2">book 2</option>
-          <option value="book3">book 3</option>
-          <option value="book4">book 4</option>
+          <option value="book1">Divergent</option>
+          <option value="book2">Hunger Games</option>
+          <option value="book3">Maze Runner</option>
+          <option value="book4">Blade Runner</option>
         </select>
       </label>
-      <button type="submit">Check Book Answer</button>
+      <button type="submit">Check your Answer</button>
     </form>
     <div id="book-result"></div>
+    <img
+      src="https://m.media-amazon.com/images/M/MV5BMTYxMzYwODE4OV5BMl5BanBnXkFtZTgwNDE5MzE2MDE@._V1_.jpg"
+      style="width: 100px; display: inline-block"
+    />
+    <img
+      src="https://m.media-amazon.com/images/M/MV5BMTcxNDI2NDAzNl5BMl5BanBnXkFtZTgwODM3MTc2MjE@._V1_.jpg"
+      style="width: 100px; display: inline-block"
+    />
+    <img
+      src="https://play-lh.googleusercontent.com/V3W_1uLiraX9RdqmRYI7SCYgI8UgK80Ta_95OmCfGrQYhJxjLwy55ggja_2AEE77h76oCg"
+      style="width: 100px; display: inline-block"
+    />
+    <img
+      src="https://m.media-amazon.com/images/M/MV5BNzA1Njg4NzYxOV5BMl5BanBnXkFtZTgwODk5NjU3MzI@._V1_FMjpg_UX1000_.jpg"
+      style="width: 100px; display: inline-block"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
       //Movie Question jQuery Code
       $("#movie-form").on("submit", function (event) {
         event.preventDefault();
 
+        $("#movie-result").animate(
+          { width: "600px", marginLeft: "20px", borderWidth: "50px" },
+          200
+        );
+
         var $answer = $("#movie-answer");
         var answer = $answer.val();
 
         if (answer === "movie1") {
-          $("#movie-result").text("YESSSS!");
+          $("#movie-result").text(
+            "MY ABSOLUTE FAVORITE, REWATCHED IT 4 TIMES!"
+          );
         } else {
-          $("#movie-result").text("Try Again!");
+          $("#movie-result").text(
+            "NOT EXACTLY MY FAVORITE, BUT still AMAZING!"
+          );
         }
       });
 
@@ -75,11 +119,15 @@ Select ONE Additional Feature to Add
         var $answer = $("#book-answer");
         var answer = $answer.val();
 
-        if (answer === "book1") {
-          $("#book-result").text("YESSSS!");
+        $("#book-result").hide();
+
+        if (answer === "book3") {
+          $("#book-result").text("Maze Runner franchise is the GOATT");
         } else {
-          $("#book-result").text("Try Again!");
+          $("#book-result").text("Nice pick, but not my favorite.");
         }
+
+        $("#book-result").slideDown(400);
       });
     </script>
   </body>
